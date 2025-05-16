@@ -49,6 +49,8 @@ return {
         end,
         desc = 'Switch to [G]itHub Copilot',
       },
+      { '<leader>c', name = '[C]ode Companion' },
+      { '<leader>ci', '<cmd>CodeCompanion<cr>', desc = '[C]ode Companion [I]nline', mode = { 'v', 'n' } },
     }
   end,
   config = function()
