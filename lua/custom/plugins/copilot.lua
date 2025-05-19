@@ -26,6 +26,13 @@ return {
     -- Dismiss with Ctrl-\
     vim.keymap.set('i', '<C-\\>', '<Plug>(copilot-dismiss)')
 
+    -- Use Ctrl-Right to accept the next word
+    vim.keymap.set('i', '<C-Right>', 'copilot#AcceptWord()', {
+      expr = true,
+      silent = true,
+      replace_keycodes = false,
+    })
+
     -- Run Copilot setup when the plugin is loaded
     vim.defer_fn(function()
       if vim.fn.exists 'g:copilot_setup_done' ~= 1 then
