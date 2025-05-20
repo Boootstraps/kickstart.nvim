@@ -24,15 +24,14 @@ return {
       merge_duplicates = true,
     }
 
-    vim.notify = notify
+    vim.notify = require 'notify'
 
-    -- Create useful commands
-    vim.api.nvim_create_user_command('NotificationHistory', function()
-      require('notify').history()
-    end, { desc = 'View notification history' })
-
-    vim.api.nvim_create_user_command('NotificationDismiss', function()
-      require('notify').dismiss()
-    end, { desc = 'Dismiss all notifications' })
+    -- Add keybind for Telescope integration with notify
+    vim.keymap.set('n', '<leader>sn', function()
+      require('telescope').extensions.notify.notify()
+    end, { desc = '[S]earch [N]otifications' })
   end,
+  dependencies = {
+    'nvim-telescope/telescope.nvim',
+  },
 }
